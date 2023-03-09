@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../../libs/mindar/mindar-image-three.prod.js"></script>
+  <script src="./main.js" type="module"></script>
+  <style>
+    html,
+    body {
+      position: relative;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    /*This is a square. Just a little bit of a recap, for usual 3.js objects 
+      one unit of length corresponds to the width of the target image in
+      MindAR but in the case of regular html elements the width of the
+      target image is equals to a thousand pixels instead*/
+    #ar-div {
+      width: 1000px;
+      height: 1000px;
+      visibility: hidden; /*Not see it at first as it launches*/
+      /*Add a lil bit more style to it*/
+      background: #0000ff;
+      opacity: 0.6;
+      font-size: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!--Any html content with css style including divs images paragraphs
+    whatever you name it can be attached to the target anchors. It is a
+    very unique and useful thing to do in web-based AR. Let me demonstrate
+    it with a regular html div element. I call it ar-div with an id...:-->
+  <div id="ar-div">This is a CSS div</div>
+</body>
+
+</html>

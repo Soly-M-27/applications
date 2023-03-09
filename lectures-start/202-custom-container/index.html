@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../libs/mindar/mindar-image-three.prod.js"></script>
+    <script src="./main.js" type="module"></script>
+    <!--Cam video may have different aspect ratio from the my-ar-container
+      so part of the video will appear outside the contained area. Therefow, the overflow property is set 
+      to hidden in order to hide that-->
+    <style> 
+      #my-ar-container {
+        height: 300px;
+        width: 300px;
+        position: relative;
+        overflow: hidden; 
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My WebAR webpage</h1>
+    <div id ="my-ar-container"></div> 
+    <!--By default the height of the div element is 0 so we will not be able to see anything-->
+    <p>It's very cool!</p>
+  </body>
+</html>

@@ -1,0 +1,328 @@
+
+/* If I want my html body to have a scroll without any content within it yet
+add height to it (example: height: 3000px).
+
+For hovering, transitioning from and to states or whatever transformations certain
+html elements need to go through, using pseudo classes to transfer between these states
+will do wonders. Example:
+
+Target html to add more html (fake html) and add a bunch of styling to it without modifying
+html file at all. (a in for anchor [links]).
+Using before and after pseudo elements helps with addinng said html without affecting the file.
+Example:
+    a {
+        text-decoration: none;
+        color: black;
+        position: relative;
+    }
+    a::before { //select box and before, do some things to it
+        content: ' '; //Tells browser that there's an element in here without adding html to html file
+        width: 100%;
+        height: 4px;
+        background-color: red;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+    a:hover::before { //This helps switch between the states. The hover pseudo class will connect to
+        height: 14px; //the bottom border created with the properties within a::before and cause the
+    }                 //border to expand behind the text in the anchor, like a highlighter action.
+    //All this to switch states where if you hover over the element, it becomes highlighted by a
+    //background-color with html element that did not need to be declared within the html file. 
+
+
+display: inline-block or block; 
+    Importance:
+        When using this on any div or whatever html
+        element, inline-block will help adjust the
+        border/area of the html-box with a width and/or
+        height, presented across the html body according to
+        the property percentages or pixels entered 
+        by the coder. There is also the block option,
+        which can be used in the display property and
+        the border box will obey the appointed width
+        and/or height similar to inline-block but if 
+        checked in the chrome dev tool, it still recognizes 
+        the space outside of the border line. Seems that
+        inline-block is best for use.
+
+        Elements that have display: inline-block can have the
+        ability to be set with a the max-width property. It
+        wont be very useful or necessary now but keep it in
+        mind.
+
+        If using the display property and activating it with
+        inline occurs, the width and height will not register. 
+        The value of inline is only going to take the minimum 
+        amount of width and height around the content/box within
+        the html body. 
+        (Optional) The html element known as span is an inline 
+        element because it uses the minimun amount of space possible. 
+        To override this, use the display property for span html 
+        elements using css, enter inline-block or block as value of
+        this property and the width and/or height entered by the coder
+        will then register.
+
+    box-sizing: border-box;
+        Importance:
+            By default, it's content-box for the value of this property
+            but we want border-box typically so that all borders, padding
+            properties, etc., will be taken as exact measurements, changing
+            the view within the browser.
+
+    padding: 10px;
+        Importance:
+            This css property will set a padding of 10 pixels 
+            around the outskirts of each side of the content 
+            within the border box of the html element in 
+            question. Remember:
+            padding: top right bottom left;
+
+    margin: auto;
+        Importance:
+            This css property set to auto by default will center the
+            div in question. You could probably eliminate padding all
+            together if the situation needs. Remember:
+            margin: top right bottom left (This way, we can avoid using 
+            margin-top, margin-bottom, etc.
+
+    float: left; (or right, top, bottom)
+        Importance:
+            Ideal floating is set to an image that makes image float
+            to the left or right with text floating and set around it
+            along with a setted box-shadow, a margin and/or padding. 
+            It'll seem like a newspaper type website if we did this.
+    
+    box-shadow: x-axis, y-axis, color
+
+    z-index: 0; (or -1, etc.)
+        Importance:
+            Messes with html layering. Can place elements on top or below
+            others that may precede them within the html file through the
+            css costumization.
+
+    position: relative; (or absolute, flex, static)
+        Importance:
+            So, let's say we have a div with id="outter_box" (parent).
+            We place a new div within that first div with an
+            id="inner_box" (child). If outter_box has the position
+            property set to relative and the inner_box with
+            it set to absolute, the inner_box will move relative
+            to the absolute space within outter_box. Remember:
+            position: relative;
+            top: 30px;
+            left: 30px;
+            
+            position: absolute;
+            top: 0; //Moves div box to the top of outter_box's corners 
+            right: 0; //Moves div box to the right of the outter_box's corners
+
+            position: fixed;
+            Sticks an element to a certain part of your viewport and let's you
+            side down the page as the page slides down. Fixed positioning will layer
+            over all below it and will stay stuck on the top if you scroll. This is
+            useful for the top tab with all the options that website offers to click.
+
+            position: sticky;
+
+
+*/
+
+#button_border {
+    border: 3px solid white;
+    display: block; /*If inline-block is used, margin will not take effect*/
+    width: 300px; /*Our scanner in Mind-AR is 300px of width and height*/
+    height: 300px;
+    margin: 150px auto; /*Centers the border exactly where the scanner lies*/
+    position: relative;
+}
+
+p {
+    color: white;
+}
+
+/*p::first-letter {
+    font-size: 50px;
+}*/
+
+/*a {
+    text-decoration: none;
+    color: yellow;
+    position: relative;
+}*/
+/*select box and before, do some things to it*/
+/* It's important to always add the content property with an empty value in it.
+This tells the browser that there's an element in here without adding html to html file.
+This is why it is known as a pseudo element.*/
+/*a::before { 
+    content: ' '; 
+    width: 100%;
+    height: 3px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}*/
+/*This helps switch between the states. The hover pseudo class will connect to*/
+ /*Using the height property, the bottom border created with the properties within
+ a::before can cause said border to become a wall behind the text within the anchor
+ set up in the html file within the only paragraph element available. */
+/*a:hover { 
+    color: white;
+}*/                
+
+/* ID's of buttons*/
+#Pinterest {
+    border: 2px solid red;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 130px;
+    left: 85px;
+    animation: SlidePinterest;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+@keyframes SlidePinterest {
+    from {
+        position: inherit;
+    }
+    to {
+        border: 2px solid red;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 5px;
+        left: 3px;
+    }
+}
+
+#GitHub {
+    border: 2px solid orange;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 130px;
+    left: 85px;
+    animation: SlideGitHub;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+@keyframes SlideGitHub {
+    from {
+        position: inherit;
+    }
+    to {
+        border: 2px solid red;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        right: 95px;
+    }
+}
+
+#Twitter {
+    border: 2px solid yellow;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 130px;
+    left: 85px;
+}
+
+#Linkedn {
+    border: 2px solid skyblue;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 130px;
+    left: 85px;
+}
+
+
+/*Class of images*/
+/*
+    Section 8: CSS 201: Intermediate level CSS    
+    Video: 134. How to add smooth transitions
+    Video: 138. WHat are transformations?
+    
+    Here the instructor will show how to make
+    elements go through momentary transitions
+    using the :hover pseudo class (which is not
+    working properly within Firefox so far). But
+    this is the idea I had in mind to make the
+    Business Cards a smooth experience. Come back
+    to this video, review it and add the necessary
+    changes to achieve the final design.
+*/
+.Pinterest {
+    border: 2px solid white;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    animation: SlideImg;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+@keyframes SlideImg {
+    from {
+        position: inherit;
+    }
+    to {
+        border: 2px solid white;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+    }
+}
+
+.GitHub {
+    border: 2px solid yellow;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    animation: SlideImg;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+.Twitter {
+    border: 2px solid blue;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    animation: SlideImg;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+.Linkedn {
+    border: 2px solid white;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    animation: SlideImg;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+
+
+/*Does not override button ID's*/
+button {
+    border: 3px solid red;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    /*outline: none;*/
+}
